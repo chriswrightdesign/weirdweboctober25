@@ -1,0 +1,50 @@
+
+.page-transparency {
+    background: #000;
+    background-blend-mode: multiply;
+    background-size: cover;
+    height: 100vh;
+    color: #fff;
+}
+
+.heading {
+    font-family: 'Bitcount Prop Single Ink', sans-serif;
+    font-weight: 900;
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.demo {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.frame {
+    width: 500px;
+    height: 500px;
+    border: 5px dotted #fff;
+    background: #fff;
+    background: url('https://images.pexels.com/photos/997390/pexels-photo-997390.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    position: relative;
+    background-position: 40% 50%;
+    overflow: clip;
+}
+
+.frame__inner {
+    background: url('https://images.pexels.com/photos/997390/pexels-photo-997390.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    content: '';
+    scale: 1.2;
+    position: absolute;
+    inset: 0;
+    background-position: 60% 50%;
+    backdrop-filter: blur(10px) brightness(0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.frame:hover .frame__inner {
+    opacity: 0.6;
+}
