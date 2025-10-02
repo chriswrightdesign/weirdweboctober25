@@ -86,12 +86,18 @@ export const wordGame = () => {
         return scrambled;
     }
 
+     const updateWord = (word) => {
+        const transition = document.startViewTransition(() => {
+            game.textContent = scrambleWord(word);
+        });
+    }
+
     const startGame = () => {
         startButton.disabled = true;
         const word = getRandomWord();
         currentWord = word;
         // output.textContent = word;
-        game.textContent = scrambleWord(word);
+        updateWord(word);
         input.disabled = false;
         input.value = '';
         score = 0;
@@ -112,11 +118,13 @@ export const wordGame = () => {
         // generate a new word
     }
 
+   
+
     const nextWord = () => {
         const word = getRandomWord();
         currentWord = word;
         // output.textContent = word;
-        game.textContent = scrambleWord(word);
+        updateWord(word);
         input.value = '';
     }
 
