@@ -74,6 +74,10 @@ export const wordGame = () => {
     let currentWord = '';
     let gameActive = false;
 
+    // body
+
+    const body = document.body;
+
     const game = document.querySelector('.js-game');
     const input = document.getElementById('scramble');
     const output = document.querySelector('.output');
@@ -82,29 +86,11 @@ export const wordGame = () => {
     const resetButton = document.querySelector('.js-reset-button');
     const difficultyRadio = document.querySelectorAll('input[name="difficulty"]');
     const scrambler = document.querySelector('.js-scramble');
+    const startButton = document.querySelector('.js-start-button');
 
     // failed
     const fails = document.querySelector('.js-words-failed');
     const wins = document.querySelector('.js-score');
-
-    guesser.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            const guess = e.target.value;
-            submitGuess(guess);
-        }
-    });
-
-    difficultyRadio.forEach(radio => {
-        radio.addEventListener('change', (e) => {
-            if (e.target.id === 'easy') {
-                console.log('easy');
-                makeEasier();
-            } else {
-                console.log('hard');
-                makeHarder();
-            }
-        });
-    });
 
     const makeEasier = () => {
         gameList = easyWordList;
@@ -135,46 +121,58 @@ export const wordGame = () => {
         });
     }
 
-    scrambler.addEventListener('click', () => {
-        if (currentWord) {
-            updateWord(currentWord);
-        }
-    });
+
+    const endGame = () => {
+        gameActive = false;
+        startButton.disabled = false;
+        input.disabled = true;
+        scrambler.disabled = true;
+        game.textContent = 'Your score: ' + score;
+        output.textContent = `The word was: ${currentWord}`;
+        body.classList.remove('is-active');
+    }
+
+    const resetGame = () => {
+        score = 0;
+        failedAttempts = 0;
+        wins.textContent = score;
+        fails.textContent = failedAttempts;
+        timeLeft = 30;
+        timeDisplay.textContent = timeLeft;
+        clearInterval(timer);
+        game.textContent = '';
+        output.textContent = '';
+        input.value = '';
+        input.disabled = true;
+        startButton.disabled = false;
+        body.classList.remove('is-active');
+    }
 
     const startGame = () => {
+        body.classList.add('is-active');
+        gameActive = true;
         startButton.disabled = true;
         const word = getRandomWord();
         currentWord = word;
         scrambler.disabled = false;
-        // output.textContent = word;
         updateWord(word);
         input.disabled = false;
         input.value = '';
         score = 0;
         timeLeft = 30;
-        // start the timer
         timer = setInterval(() => {
             timeLeft--;
             timeDisplay.textContent = timeLeft;
             if (timeLeft <= 0) {
                 clearInterval(timer);
-                gameActive = false;
-                startButton.disabled = false;
-                input.disabled = true;
-                scrambler.disabled = true;
-                game.textContent = 'Your score: ' + score;
-                output.textContent = `The word was: ${currentWord}`;
+                endGame();
             }
         }, 1000);
-        // generate a new word
     }
-
-   
 
     const nextWord = () => {
         const word = getRandomWord();
         currentWord = word;
-        // output.textContent = word;
         updateWord(word);
         input.value = '';
     }
@@ -191,25 +189,35 @@ export const wordGame = () => {
         }
     }
 
-    // add event listener to start button
 
-    const startButton = document.querySelector('.js-start-button');
+    scrambler.addEventListener('click', () => {
+        if (currentWord) {
+            updateWord(currentWord);
+        }
+    });
+
+       guesser.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const guess = e.target.value;
+            submitGuess(guess);
+        }
+    });
+
+    difficultyRadio.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            if (e.target.id === 'easy') {
+                console.log('easy');
+                makeEasier();
+            } else {
+                console.log('hard');
+                makeHarder();
+            }
+        });
+    });
+
     startButton.addEventListener('click', startGame);
 
-    resetButton.addEventListener('click', () => {
-        score = 0;
-        failedAttempts = 0;
-        wins.textContent = score;
-        fails.textContent = failedAttempts;
-        timeLeft = 30;
-        timeDisplay.textContent = timeLeft;
-        clearInterval(timer);
-        game.textContent = '';
-        output.textContent = '';
-        input.value = '';
-        input.disabled = true;
-        startButton.disabled = false;
-    });
+    resetButton.addEventListener('click', resetGame);;
 }
 
 wordGame();

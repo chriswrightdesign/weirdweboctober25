@@ -38,6 +38,24 @@ button {
     color: #fff;
 }
 
+.game-controls, .scrambler {
+    opacity: 0;
+}
+
+.scrambler {
+    padding: 1rem;
+    color: #fff;
+}
+.is-active .game-controls {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.is-active .scrambler {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
 .input {
     border: none;
     padding: 0.5rem 1rem;
