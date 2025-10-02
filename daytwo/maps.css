@@ -1,0 +1,46 @@
+
+body {
+    font-family: "Prata", serif;
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 2rem;
+    color: #333;
+}
+.demo {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+    margin: 0 auto;
+    background: url('stagemap.webp');
+    background-size: cover;
+    height: 600px;
+    position: relative;
+}
+
+
+
+.animal {
+    position: absolute;
+    rotate: -125deg
+}
+
+
+.path {
+  stroke-width: 2px;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 4s linear forwards infinite;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 2000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
