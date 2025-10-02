@@ -1,0 +1,53 @@
+body {
+    background: #1e293b;
+    color: #fff;
+    text-align: center;
+     font-family: "DM Sans", sans-serif;
+}
+
+.heading {
+    color: #fff;
+    font-family: "DM Serif Display", sans-serif;
+}
+
+.text {
+    color: #94a3b8;
+   
+}
+
+.button {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: "DM Sans", sans-serif;
+}
+
+.input {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: "DM Sans", sans-serif; 
+}
+
+.time-left {
+    font-size: 2rem;
+    font-family: "DM Sans", sans-serif; 
+    padding-top: 3rem;
+}
+
+.game {
+    font-size: 7rem;
+    font-family: "DM Serif Display", sans-serif;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.scoreboard {
+    padding-top: 3rem;
+}
+
+.start-button {
+    margin-top: 2rem;
+}

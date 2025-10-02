@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Day 3 - Scramble</title>
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="scramble.css">
+       
+    </head>
+    <body>
+        <h1 class="heading">Scrambler</h1>
+        <div class="instructions text">You have 30 seconds to guess as many words as you can.</div>
+
+        <button class="button start-button js-start-button">Start Game</button>
+
+        <div class="game js-game"></div>
+        <input type="text" disabled class="input js-guess" id="scramble" placeholder="Your guess" />
+
+        <div class="time-left">Time left: <span class="js-timer">30</span></div>
+        
+        <div class="scoreboard">
+            <div class="scoreboard-item">Score: <span class="js-score">0</span></div>
+            <div class="scoreboard-item">Failed attempts: <span class="js-words-failed">0</span></div>
+        </div>
+
+        <!-- guess the words in the scramble -->
+        <div class="output"></div>
+        
+        <script type="module" src="./scramble.js"></script>
+    </body>
+</html>
