@@ -90,7 +90,7 @@ export const wordGame = () => {
         startButton.disabled = true;
         const word = getRandomWord();
         currentWord = word;
-        output.textContent = word;
+        // output.textContent = word;
         game.textContent = scrambleWord(word);
         input.disabled = false;
         input.value = '';
