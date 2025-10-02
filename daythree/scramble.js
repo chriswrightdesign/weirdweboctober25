@@ -63,6 +63,7 @@ export const wordGame = () => {
     const output = document.querySelector('.output');
     const timeDisplay = document.querySelector('.js-timer');
     const guesser = document.querySelector('.js-guess');
+    const resetButton = document.querySelector('.js-reset-button');
 
     // failed
     const fails = document.querySelector('.js-words-failed');
@@ -144,6 +145,21 @@ export const wordGame = () => {
 
     const startButton = document.querySelector('.js-start-button');
     startButton.addEventListener('click', startGame);
+
+    resetButton.addEventListener('click', () => {
+        score = 0;
+        failedAttempts = 0;
+        wins.textContent = score;
+        fails.textContent = failedAttempts;
+        timeLeft = 30;
+        timeDisplay.textContent = timeLeft;
+        clearInterval(timer);
+        game.textContent = '';
+        output.textContent = '';
+        input.value = '';
+        input.disabled = true;
+        startButton.disabled = false;
+    });
 }
 
 wordGame();
