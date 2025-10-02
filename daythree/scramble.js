@@ -48,8 +48,24 @@ const wordList = [
     'vibrant', 'village', 'vintage', 'violate', 'visible', 'volcanic', 'voltage',
     'vulture', 'warfare', 'warrant', 'weather', 'welfare', 'western', 'whisper',
     'wildcat', 'witness', 'wrapper', 'wrestle', 'written', 'younger', 'zealous'
-]
+];
+
+const easyWordList = [
+    'apple', 'grape', 'peach', 'mango', 'berry', 'melon', 'lemon', 'cherry', 'plum', 'olive',
+    'table', 'chair', 'couch', 'shelf', 'desk', 'lamp', 'clock', 'plant', 'rug', 'pillow',
+    'house', 'hotel', 'cabin', 'villa', 'castle', 'tent', 'igloo', 'hut', 'barn', 'shed',
+    'river', 'ocean', 'beach', 'island', 'valley', 'forest', 'desert', 'canyon', 'glacier', 'water',
+    'cloud', 'storm', 'rain', 'snow', 'wind', 'fog', 'sunny', 'breezy', 'humid', 'dry',
+    'happy', 'sadly', 'angry', 'brave', 'calmly', 'eager', 'fancy', 'funny', 'jolly', 'kindly',
+    'quick', 'slowly', 'swift', 'brisk', 'lethargic', 'speedy', 'rapid', 'snappy', 'fleet', 'hasty',
+    'light', 'heavy', 'solid', 'dense', 'fluffy', 'stiff', 'softly', 'rigid', 'firmly', 'bulky',
+    'clean', 'dirty', 'neat', 'messy', 'tidy', 'filthy', 'spotless', 'grimy', 'pristine', 'soiled',
+    'loud', 'quiet', 'noisy', 'silent', 'boisterous', 'hushed', 'clamorous', 'muted', 'resonant', 'soft',
+    'strong', 'weak', 'sturdy', 'frail', 'robust', 'delicate', 'tough', 'feeble', 'solid', 'brittle'
+];
 export const wordGame = () => {
+
+    let gameList = wordList;
 
     let score = 0;
     let failedAttempts = 0;
@@ -64,6 +80,8 @@ export const wordGame = () => {
     const timeDisplay = document.querySelector('.js-timer');
     const guesser = document.querySelector('.js-guess');
     const resetButton = document.querySelector('.js-reset-button');
+    const difficultyRadio = document.querySelectorAll('input[name="difficulty"]');
+    const scrambler = document.querySelector('.js-scramble');
 
     // failed
     const fails = document.querySelector('.js-words-failed');
@@ -76,10 +94,30 @@ export const wordGame = () => {
         }
     });
 
-    // function to get a random word from the wordList array
+    difficultyRadio.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            if (e.target.id === 'easy') {
+                console.log('easy');
+                makeEasier();
+            } else {
+                console.log('hard');
+                makeHarder();
+            }
+        });
+    });
+
+    const makeEasier = () => {
+        gameList = easyWordList;
+    }
+
+    const makeHarder = () => {
+        gameList = wordList;
+    }
+
+    // function to get a random word from the gameList array
     const getRandomWord = () => {
-        const randomIndex = Math.floor(Math.random() * wordList.length);
-        return wordList[randomIndex];
+        const randomIndex = Math.floor(Math.random() * gameList.length);
+        return gameList[randomIndex];
     }
 
     const scrambleWord = (word) => {
@@ -97,10 +135,17 @@ export const wordGame = () => {
         });
     }
 
+    scrambler.addEventListener('click', () => {
+        if (currentWord) {
+            updateWord(currentWord);
+        }
+    });
+
     const startGame = () => {
         startButton.disabled = true;
         const word = getRandomWord();
         currentWord = word;
+        scrambler.disabled = false;
         // output.textContent = word;
         updateWord(word);
         input.disabled = false;
@@ -116,8 +161,9 @@ export const wordGame = () => {
                 gameActive = false;
                 startButton.disabled = false;
                 input.disabled = true;
+                scrambler.disabled = true;
                 game.textContent = 'Your score: ' + score;
-                output.textContent = '';
+                output.textContent = `The word was: ${currentWord}`;
             }
         }, 1000);
         // generate a new word

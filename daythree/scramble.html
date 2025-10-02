@@ -16,7 +16,11 @@
             <button class="button reset-button js-reset-button">Reset Game</button>
         </div>
         
-        <div class="game js-game"></div>
+        <div class="game-container">
+            <div class="game js-game"></div>
+            <button class="icon-button js-scramble" disabled><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-washing-machine-icon lucide-washing-machine"><path d="M3 6h3"/><path d="M17 6h.01"/><rect width="18" height="20" x="3" y="2" rx="2"/><circle cx="12" cy="13" r="5"/><path d="M12 18a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 1 0-5"/></svg></button>
+        </div>
+
         <input type="text" disabled class="input js-guess" id="scramble" placeholder="Your guess" />
 
         <div class="time-left">Time left: <span class="js-timer">30</span></div>
@@ -24,6 +28,13 @@
         <div class="scoreboard">
             <div class="scoreboard-item">Score: <span class="js-score">0</span></div>
             <div class="scoreboard-item">Failed attempts: <span class="js-words-failed">0</span></div>
+        </div>
+
+        <div class="js-difficulty">
+            <input type="radio" name="difficulty" id="normal" checked>
+            <label for="normal">Normal</label>
+            <input type="radio" name="difficulty" id="easy">
+            <label for="easy">Easier</label>
         </div>
 
         <!-- guess the words in the scramble -->
