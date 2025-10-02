@@ -105,7 +105,7 @@ export const wordGame = () => {
                 gameActive = false;
                 startButton.disabled = false;
                 input.disabled = true;
-                game.textContent = 'Game Over! Your score: ' + score;
+                game.textContent = 'Your score: ' + score;
                 output.textContent = '';
             }
         }, 1000);
@@ -115,7 +115,7 @@ export const wordGame = () => {
     const nextWord = () => {
         const word = getRandomWord();
         currentWord = word;
-        output.textContent = word;
+        // output.textContent = word;
         game.textContent = scrambleWord(word);
         input.value = '';
     }
