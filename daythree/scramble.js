@@ -84,6 +84,10 @@ export const wordGame = () => {
 
     const scrambleWord = (word) => {
         const scrambled = word.split('').sort(() => 0.5 - Math.random()).join('');
+
+        if (scrambled === word) {
+            return scrambleWord(word);
+        }
         return scrambled;
     }
 

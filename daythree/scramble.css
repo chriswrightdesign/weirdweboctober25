@@ -28,7 +28,9 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 6px;
     font-size: 1rem;
-    font-family: "DM Sans", sans-serif; 
+    font-family: "DM Sans", sans-serif;
+    width: 100%;
+    max-width: 400px;
 }
 
 .time-left {
@@ -50,4 +52,10 @@ body {
 
 .start-button {
     margin-top: 2rem;
+}
+
+.scoreboard {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
 }
