@@ -143,6 +143,7 @@ export const wordGame = () => {
         game.textContent = '';
         output.textContent = '';
         input.value = '';
+
         input.disabled = true;
         startButton.disabled = false;
         body.classList.remove('is-active');
@@ -158,6 +159,7 @@ export const wordGame = () => {
         updateWord(word);
         input.disabled = false;
         input.value = '';
+        output.textContent = '';
         score = 0;
         timeLeft = 30;
         timer = setInterval(() => {

@@ -8,9 +8,15 @@
        
     </head>
     <body>
-        <h1 class="heading">Scrambler</h1>
+        <h1 class="heading">Scramble!</h1>
         <div class="instructions text">You have 30 seconds to guess as many words as you can.</div>
 
+        <div class="difficulty js-difficulty">
+            <input type="radio" name="difficulty" id="normal" checked>
+            <label for="normal">Normal</label>
+            <input type="radio" name="difficulty" id="easy">
+            <label for="easy">Easier</label>
+        </div>
         <div class="actions">
             <button class="button start-button js-start-button">Start Game</button>
             <button class="button reset-button js-reset-button">Reset Game</button>
@@ -33,12 +39,7 @@
         </div>
         </div>
 
-        <div class="js-difficulty">
-            <input type="radio" name="difficulty" id="normal" checked>
-            <label for="normal">Normal</label>
-            <input type="radio" name="difficulty" id="easy">
-            <label for="easy">Easier</label>
-        </div>
+        
 
         <!-- guess the words in the scramble -->
        

@@ -16,6 +16,9 @@ button {
     border: none;
 }
 
+.difficulty {
+    padding: 1rem;
+}
 .heading {
     color: #fff;
     font-family: "DM Serif Display", sans-serif;
@@ -23,19 +26,14 @@ button {
 
 .text {
     color: #94a3b8;
-   
 }
 
 .button {
     background: #fff;
     padding: 0.5rem 1rem;
     border-radius: 6px;
-    font-size: 1rem;
+    font-size: 0.75rem;
     font-family: "DM Sans", sans-serif;
-}
-
-.icon-button {
-    color: #fff;
 }
 
 .game-controls, .scrambler {
