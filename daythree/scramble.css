@@ -29,7 +29,7 @@ button {
 }
 
 .button {
-    background: #fff;
+    background: #129e91;
     padding: 0.5rem 1rem;
     border-radius: 6px;
     font-size: 0.75rem;
@@ -71,7 +71,7 @@ button {
 }
 
 .game {
-    font-size: 12rem;
+    font-size: clamp(2rem, 12rem, 20vw);
     font-family: "DM Serif Display", sans-serif;
     padding-top: 3rem;
     padding-bottom: 3rem;

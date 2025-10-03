@@ -1,15 +1,16 @@
 <html>
     <head>
-        <title>Day 3 - Scramble</title>
-         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+        <title>Word scrambler</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="scramble.css">
        
     </head>
     <body>
         <h1 class="heading">Scramble!</h1>
-        <div class="instructions text">You have 30 seconds to guess as many words as you can.</div>
+        <div class="instructions text">You have 60 seconds to guess as many words as you can.</div>
 
         <div class="difficulty js-difficulty">
             <input type="radio" name="difficulty" id="normal" checked>
@@ -25,13 +26,13 @@
         <div class="game-container js-game-container">
             <div class="game js-game"></div>
              <div class="output"></div>
-            <button class="scrambler js-scramble" disabled>Help!</button>
+            <button class="scrambler js-scramble" disabled>Scramble!</button>
         </div>
 
         <div class="game-controls">
         <input type="text" disabled class="input js-guess" id="scramble" placeholder="Your guess" />
 
-        <div class="time-left">Time left: <span class="js-timer">30</span></div>
+        <div class="time-left">Time left: <span class="js-timer">60</span></div>
         
         <div class="scoreboard">
             <div class="scoreboard-item">Score: <span class="js-score">0</span></div>

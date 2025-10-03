@@ -69,7 +69,7 @@ export const wordGame = () => {
 
     let score = 0;
     let failedAttempts = 0;
-    let timeLeft = 30;
+    let timeLeft = 60;
     let timer;
     let currentWord = '';
     let gameActive = false;
@@ -87,8 +87,7 @@ export const wordGame = () => {
     const difficultyRadio = document.querySelectorAll('input[name="difficulty"]');
     const scrambler = document.querySelector('.js-scramble');
     const startButton = document.querySelector('.js-start-button');
-
-    // failed
+    // Failed
     const fails = document.querySelector('.js-words-failed');
     const wins = document.querySelector('.js-score');
 
@@ -116,9 +115,7 @@ export const wordGame = () => {
     }
 
      const updateWord = (word) => {
-        const transition = document.startViewTransition(() => {
-            game.textContent = scrambleWord(word);
-        });
+         game.textContent = scrambleWord(word);
     }
 
 
@@ -137,7 +134,7 @@ export const wordGame = () => {
         failedAttempts = 0;
         wins.textContent = score;
         fails.textContent = failedAttempts;
-        timeLeft = 30;
+        timeLeft = 60;
         timeDisplay.textContent = timeLeft;
         clearInterval(timer);
         game.textContent = '';
@@ -161,7 +158,7 @@ export const wordGame = () => {
         input.value = '';
         output.textContent = '';
         score = 0;
-        timeLeft = 30;
+        timeLeft = 60;
         timer = setInterval(() => {
             timeLeft--;
             timeDisplay.textContent = timeLeft;
@@ -188,6 +185,7 @@ export const wordGame = () => {
         } else {
             failedAttempts++;
             fails.textContent = failedAttempts;
+            nextWord();
         }
     }
 
