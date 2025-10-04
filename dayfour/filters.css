@@ -1,0 +1,86 @@
+@property --position {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 1%;
+}
+
+ * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+html {
+    block-size: 100%;
+    background: #000;
+    color: #fff;
+}
+
+.intro h1 {
+    font-family: "Nunito", sans-serif;
+    font-size: 2rem;
+}
+
+body {
+    display: grid;
+    min-block-size: 100%;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 100dvh;
+}
+
+.comparison {
+    display: grid;
+    position: relative;
+}
+
+.comparison__item {
+    grid-area: 1 / 1;
+    display: grid;
+    place-content: center;
+}
+
+.before {
+    filter: grayscale(1);
+    mask: linear-gradient(to right, #000 0, var(--position, 50%), #0000 0);
+}
+
+.middle {
+    position: absolute;
+    width: 400px;
+    z-index: 2;
+    height: 400px;
+    inset: 50%;
+    pointer-events: none;
+    display: none;
+}
+
+input[type="range"] {
+    grid-area: 1 / 1;
+    z-index: 1;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+   appearance: none;
+   inline-size: 5px;
+   block-size: 100dvh;
+   background-color: CanvasText;
+ } 
+
+input[type="range"]::-moz-range-thumb {
+   appearance: none;
+   inline-size: 5px;
+   block-size: 100dvh;
+   background-color: CanvasText;
+ }

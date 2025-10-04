@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Filters</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="filters.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="intro">
+            <h1>Tune out filter</h1>
+            <p>Move the slider to tune out of the meeting</p>
+        </div>
+        <div class="container">
+            <div class="comparison">
+                <div class="comparison__item before">
+                    <img class="image" src="tunedout.jpg" />
+                    
+                </div>
+        
+                <div class="comparison__item after">
+                    <img class="image" src="https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg" />
+                </div>
+                <input type="range" id="range" step="0.1">
+            </div>
+        </div>
+
+        <script type="module" src="./filters.js"></script>
+    </body>
+</html>
