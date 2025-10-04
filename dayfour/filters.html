@@ -8,22 +8,21 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 
     </head>
-    <body>
+    <body style="--position: 1%">
         <div class="intro">
             <h1>Tune out filter</h1>
-            <p>Move the slider to tune out of the meeting</p>
+            <p>Move the slider to the right to tune out of the boring meeting.</p>
         </div>
         <div class="container">
             <div class="comparison">
                 <div class="comparison__item before">
-                    <img class="image" src="tunedout.jpg" />
-                    
+                    <img class="image" src="tunedout.jpg" alt="Tuned Out in a meeting, people with horse masks." />
                 </div>
         
                 <div class="comparison__item after">
-                    <img class="image" src="https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg" />
+                    <img class="image" src="https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg" alt="People in a meeting" />
                 </div>
-                <input type="range" id="range" step="0.1">
+                <input type="range" id="range" value="1" step="0.1">
             </div>
         </div>
 

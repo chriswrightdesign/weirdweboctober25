@@ -49,17 +49,7 @@ body {
 
 .before {
     filter: grayscale(1);
-    mask: linear-gradient(to right, #000 0, var(--position, 50%), #0000 0);
-}
-
-.middle {
-    position: absolute;
-    width: 400px;
-    z-index: 2;
-    height: 400px;
-    inset: 50%;
-    pointer-events: none;
-    display: none;
+    mask: linear-gradient(to right, #000 0, var(--position, 1%), #0000 0);
 }
 
 input[type="range"] {
