@@ -25,5 +25,9 @@
 }
 
 .stage.is-active .circle {
-    animation: escape 0.5s 1 ease-in-out; 
+    animation: escape 0.6s 1 ease-in-out; 
+}
+
+.stage.is-trapped .circle {
+    animation-play-state: paused;
 }

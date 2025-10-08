@@ -13,6 +13,9 @@
         begin();
         clearTimeout();
         body.classList.add('is-started');
+        stage.classList.remove('is-active');
+        stage.classList.remove('is-trapped');
+        status.textContent = 'Wait for it....';
         // add a timer for a random amount between 3 and 9 seconds
         const timer = Math.floor(Math.random() * 6000) + 3000;
         isPending = true;
@@ -29,7 +32,6 @@
         isActive = false;
         isPending = false;
         body.classList.remove('is-started');
-        stage.classList.remove('is-active');
         trap.disabled = true;
     }
 
@@ -44,9 +46,11 @@
     trap.addEventListener('click', () => {
         if (isActive) {
             status.textContent = 'You win!';
+            stage.classList.add('is-trapped');
             end();
         } else if (isPending) {
             status.textContent = 'Nope';
+
             end();
         }
     });
