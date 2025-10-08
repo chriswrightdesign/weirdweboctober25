@@ -1,0 +1,14 @@
+
+body {
+    font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 7rem;
+  width: 100%;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+  text-wrap: balance;
+}
