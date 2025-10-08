@@ -1,0 +1,29 @@
+
+
+.stage {
+    display: flex;   
+    justify-content: center;   
+    align-items: center;   
+    height: 100vh; 
+}
+@keyframes escape {
+    0% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+.circle {    
+  width: 100px;   
+  height: 100px;   
+  background-color: blue;   
+  border-radius: 50%;
+  transform: translateX(-100vw);
+  
+}
+
+.stage.is-active .circle {
+    animation: escape 0.5s 1 ease-in-out; 
+}

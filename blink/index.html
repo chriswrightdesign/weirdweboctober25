@@ -8,15 +8,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>Catch the escaping circle</h1>
+        <h1>Don't blink: catch the escaping circle</h1>
         <p>Press the button, wait for the circle to escape, you gotta watch closely or you might miss it. Click the button again as soon as you see the circle.</p>
 
-        <button class="js-start">Start</button>
+        <p>Status: <span class="js-output">Waiting</span></p>
 
-        <button class="js-trap">Trap it!</button>
+        <button class="js-start button">Start</button>
 
-        <div class="stage">
-            <div class="circle"></div>
+        <button class="js-trap button" disabled>Trap it!</button>
+
+        <div class="js-stage stage">
+            <div class="js-circle circle"></div>
         </div>
     </body>
     <script type="text/javascript" src="./blink.js"></script>
