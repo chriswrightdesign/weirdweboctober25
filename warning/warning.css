@@ -1,0 +1,213 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+    background: #fbfbfb;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    margin: 0;
+}
+
+body.no-js {
+    background: #000;
+}
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+/* End reset */
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+
+.carousel {
+    overflow: hidden;
+    height: 500px;
+    width: 320px;
+}
+
+.card-list {
+
+    display: flex;
+    cursor: pointer;
+    flex-flow: column wrap;
+    height: inherit;
+    width: inherit;
+}
+
+.card-list__item {
+    backface-visibility: hidden;
+    height: inherit;
+    width: inherit;
+}
+
+.card {
+    display: block;
+    height: inherit;
+    position: relative;
+    width: inherit;
+    text-decoration: none;
+}
+
+.is-flipped .card__face--back {
+    z-index: 1;
+    transform: rotateY(-180deg);
+}
+
+.is-flipped .card__face--front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+.svg-filters {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.card__face {
+    backface-visibility: hidden;
+    border-radius: 10px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: transform 0.4s cubic-bezier(.19,-.39,0,1.1);
+    perspective: 1000px;
+    width: inherit;
+    height: inherit;
+
+}
+.card__face img {
+    border-radius: 10px;
+}
+
+.card__face--back {
+    z-index: 2;
+    transform: rotateY(0deg);
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjNDAzYzNmIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2U9IiMxZTI5MmQiPjwvcGF0aD4KPC9zdmc+");
+}
+
+.card__face--front {
+    z-index: 1;
+    transform: rotateY(-180deg);
+    backface-visibility: hidden;
+    background-color: #fff;
+    background-image: linear-gradient(-180deg,rgba(255,255,255,0) 94%,rgba(0,0,0,0.02) 100%);
+    border-width: 1px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(0,0,0,.13) rgba(0,0,0,.13) rgba(0,0,0,.16);
+    bottom: 0;
+    box-shadow: 0 3px 1px 0 rgba(0,0,0,.01);
+}
+
+.card__face {
+    padding: 1.25rem;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    align-content: center;
+    text-decoration: none;
+
+}
+
+.card__heading {
+    font-family: Bitter, serif;
+}
+
+.card__heading--primary {
+    font-size: 1.6em;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+.card__heading--secondary {
+    font-size: 0.9em;
+}
+
+.card__summary {
+    margin-top: 0;
+    font-size: 1.15em;
+    line-height: 1.5;
+    font-family: Raleway, serif;
+
+}
+.card__description {
+    margin-top: 0;
+    font-size: 0.9em;
+    line-height: 1.5;
+    font-family: Raleway, serif;
+    hyphens: auto;
+}
+.deck {
+    position: absolute;
+}
+
+.warning-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4em;
+    text-align: center;
+    padding-top: 3rem;
+    color: #000000;
+}
+
+.no-js .card__face--front {
+    transform: rotate(0deg);
+}
+.no-js .card__face--back {
+    display: none;
+}
+.no-js .carousel {
+    overflow: visible;
+    height: auto;
+}
+.no-js .container {
+    height: auto;
+}
+
+.no-js .card-list {
+    flex-direction: column;
+}
+
+.no-js .card__face {
+    position: relative;
+}
