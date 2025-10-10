@@ -17,11 +17,6 @@
     if (!streaming) {
         height = video.videoHeight / (video.videoWidth / width);
 
-        titleElement.textContent = newHeading;
-        descriptionElement.textContent = newDescription;
-        info.classList.add('is-active');
-        watchButton.remove();
-
         video.setAttribute("width", width);
         video.setAttribute("height", height);
         canvas.setAttribute("width", width);
@@ -36,6 +31,10 @@
     .then((stream) => {
       video.srcObject = stream;
       video.play();
+       titleElement.textContent = newHeading;
+        descriptionElement.textContent = newDescription;
+        info.classList.add('is-active');
+        watchButton.remove();
     })
     .catch((err) => {
       console.error(`An error occurred: ${err}`);
