@@ -57,10 +57,26 @@ li {
     margin: 0;
 }
 
+.info ul {
+    opacity: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .info {
-    opacity: 0;
+    display: none;
 }
 
 .info.is-active {
     opacity: 1;
+    display: block;
+
+    @starting-style {
+        opacity: 0;
+    }
+
+    transition: opacity 0.5s ease-in-out;
 }
