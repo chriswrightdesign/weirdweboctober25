@@ -24,13 +24,43 @@ p {
     color: #555;
 }
 
+button {
+    background: none;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    background: rgb(45, 8, 145);
+    color: #fff;
+    margin: 0 auto;
+    max-width: fit-content;
+}
+
+.actions {
+    width: 100%;
+    display: flex;
+
+}
+
 .canvas {
     height: 80vh;
     aspect-ratio: 16 / 9;
+}
+
+.camera {
+    max-width: fit-content;
+    margin: 0 auto;
 }
 
 li {
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+.info {
+    opacity: 0;
+}
+
+.info.is-active {
+    opacity: 1;
 }
