@@ -67,6 +67,7 @@ li {
 }
 
 .info {
+    padding-top: 1rem;
     display: none;
 }
 
