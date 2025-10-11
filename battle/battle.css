@@ -16,7 +16,8 @@ button {
 
 .button {
     color: rgb(17, 17, 67);
-    font-size: 1.25rem
+    font-size: 1.25rem;
+
 }
 
 .button--choice {
@@ -36,6 +37,8 @@ button {
 
 .battlefield button {
     height: 100vh;
+    padding-left: 4rem;
+    padding-right: 4rem;
 }
 
 .battlechoices {
