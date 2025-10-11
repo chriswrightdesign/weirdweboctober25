@@ -17,7 +17,7 @@
     let losers = [];
 
 
-    const list = ['Let one rip on a train', 'Do a poo', 'Eat a sandwich', 'Watch TV', 'Watch a movie', 'Play video games', 'Read a book', 'Go for a walk', 'Cook dinner', 'Clean the toilet', 'Run to your friends house and nearly die', 'Have a nap', 'Take a shower when you were sweaty', 'Go to the gym', 'Meditate', 'Play an instrument', 'Go to a gig', 'Do something ludicrous', 'Paint a picture', 'Dance in your house', 'Organise your wardrobe', 'Listen to music', 'Have a coffee with a friend', 'Go on tangeants', 'See a friend you haven\'t seen in a while', 'Have a bath', 'Hang with your bestie in work time', 'Have a picnic', 'Get bitten in the butt by an ant', 'Let one rip in a church', 'Roll around in the grass'];
+    const list = ['Let one rip on a train', 'Do a poo', 'Eat a sandwich', 'Head massages','Drop a stinker in public and watch as someone starts sniffing and try not to laugh', 'mutually touch hands with a crush', 'Watch TV', 'Have a drink of water when you are really thirsty', 'Get to the toilet when you are literally seconds from soiling yourself', 'The feeling when you notice someone react to you positively', 'Remembering what you did last week', 'Remembering why you entered the room', 'Watch a movie', 'Play video games', 'Read a book', 'Go for a walk', 'Cook dinner', 'Clean the toilet', 'Run to your friends house and nearly die', 'Have a nap', 'Take a shower when you were sweaty', 'Go to the gym', 'Meditate', 'Play an instrument', 'Go to a gig', 'Do something ludicrous', 'Paint a picture', 'Dance in your house', 'Organise your wardrobe', 'Listen to music', 'Have a coffee with a friend', 'Go on tangents', 'See a friend you haven\'t seen in a while', 'Have a bath', 'Hang with your bestie in work time', 'Have a picnic', 'Get bitten in the butt by an ant', 'Let one rip in a church', 'Roll around in the grass'];
 
     const workplaceList = ['Time box', 'Stand up', 'Sprint', 'Retrospective', 'Backlog grooming', 'User story', 'Scrum master', 'Create synergies', 'Low hanging fruit', 'Circle back', 'Ping me', 'Bandwidth', 'Touch base', 'Move the needle', 'Deep dive', 'Take this offline', 'On the same page', 'Game changer', 'Disruptive', 'Ideate', 'Pivot', 'Leverage', 'Granular', 'Scalable', 'Streamline', 'Ecosystem', 'Wheelhouse', 'Pain point', 'Core competency', 'Value add', 'Quick win'];
 
@@ -85,14 +85,13 @@
     const randomUniqueChoice = () => {
         const index = Math.floor(Math.random() * testList.length);
         const item = testList[index];
-        if (item === listItem1 || item === listItem2 && losers.includes(item)) {
+        if (item === listItem1 || item === listItem2 || losers.includes(item)) {
             return randomUniqueChoice();
         }
         return item;
     }
 
     const setup = () => {
-        console.log('losers: ', losers);
         listItem1 = randomUniqueChoice();
         listItem2 = randomUniqueChoice();
 
