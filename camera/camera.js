@@ -2,6 +2,8 @@
     const body = document.querySelector('body');
     const cameraButton = document.querySelector('button');
 
+    const camera = document.querySelector('.js-camera');
+
     const video = document.querySelector('.video');
 
     const canvas = document.querySelector('.canvas');
@@ -38,6 +40,11 @@
     })
     .catch((err) => {
       console.error(`An error occurred: ${err}`);
+      titleElement.textContent = newHeading;
+        descriptionElement.textContent = newDescription;
+        info.classList.add('is-active');
+        watchButton.remove();
+        camera.classList.add('is-broken');
     });
 });
 })();
