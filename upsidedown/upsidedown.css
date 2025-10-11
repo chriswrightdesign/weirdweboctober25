@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.upsidedown {
+    aspect-ratio: 16 / 9;
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    transform: rotate(180deg);
+}
