@@ -1,5 +1,6 @@
 (() => {
 
+    const body = document.body;
     const buttonOne = document.querySelector('.js-one');
     const buttonTwo = document.querySelector('.js-two');
 
@@ -60,30 +61,29 @@
     }
 
     const setWinners = () => {
-        const sortedVotes = Object.entries(listVotes).sort((a, b) => b[1] - a[1]);
-        console.log('winners: ', listVotes);
-        console.log('sorted: ', sortedVotes);
-        const winner = sortedVotes.slice(0, 1);
-        const runnersUp = sortedVotes.slice(1, 3);
+ 
+        const sortedVotes = Object.entries(listVotes).filter((item) => {
+            return item !== undefined;
+        }).sort((a, b) => b[1] - a[1]);
+
         const resultsContainer = document.querySelector('.js-results');
-        const winnerText = resultsContainer.querySelector('.js-winner');
-        winnerText.textContent = `Winner: ${winner[0][0]}`;
         const runnersUpList = resultsContainer.querySelector('.js-runners-up');
-        runnersUp.forEach(runner => {
+        sortedVotes.forEach(runner => {
             const li = document.createElement('li');
-            li.textContent = runner[0];
+            li.textContent = `${runner[0]} - ${runner[1]} votes`;
             runnersUpList.appendChild(li);
         });
-        const loserText = resultsContainer.querySelector('.js-loser');
+        // const loserText = resultsContainer.querySelector('.js-loser');
         // loserText.textContent = `Loser: ${biggestLoser}`;
         resultsContainer.classList.add('is-active');
+        body.classList.add('is-complete');
     }
 
     const updateVotes = (choice) => {
         battleCount += 1;
         listVotes[choice] += 1;
 
-        if ((testList.length - losers.length) <= 2) {
+        if ((testList.length - losers.length) <= 1) {
             setWinners();
             return;
         }
@@ -91,36 +91,16 @@
         setup();
     }
 
-    const finalBattle = () => {
-        isFinalBattle = true;
-        // create a new list out of the top 4 items
-        const sortedVotes = Object.entries(listVotes).sort((a, b) => b[1] - a[1]);
-        // get the item with the lowest value from listVotes object
-        // const biggestLoserVotes = Math.min(...Object.values(listVotes));
-        // console.log('final battle votes: ', sortedVotes);
-        // biggestLoser = sortedVotes.find(item => item[1] === biggestLoserVotes)[0];
-        // console.log('Entered final battle: biggest loser is: ', biggestLoser);
-        const finalList = sortedVotes.slice(0, 4).map(item => item[0]);
-        testList = finalList;
-        listVotes = createListVotes(testList);
-        loserList = [];
-        battleCount = 0;
-        setup();
-    }
+
 
     // randomly select one of the list items
     const randomUniqueChoice = () => {
         const index = Math.floor(Math.random() * testList.length);
         const item = testList[index];
-
-        if (isFinalBattle) {
-            return item;
-        }
-
         
         // the problem is there's no items left.
-        if (losers.length === (testList.length - 2)) {
-            finalBattle();
+        if (losers.length === (testList.length - 3)) {
+            setWinners();
             return;
         }
         if (item === listItem1 || item === listItem2 || losers.includes(item)) {
