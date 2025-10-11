@@ -1,0 +1,110 @@
+
+* {
+    box-sizing: border-box;
+    font-family: 'Source Sans 3', sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.button {
+    color: rgb(17, 17, 67);
+    font-size: 1.25rem
+}
+
+.button--choice {
+    background: rgb(230, 19, 93);
+    color: #fff;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+.battlefield {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.battlefield button {
+    height: 100vh;
+}
+
+.battlechoices {
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.one {
+    background-color: rgb(39, 220, 187);
+}
+
+.two {
+    background-color: rgb(0, 179, 255);
+}
+
+.versus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Oswald', sans-serif;
+    font-size: 10vw;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.battlechoices.is-complete {
+    display: none;
+}
+
+.results {
+    display: none;
+}
+
+.results.is-active {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 40vh;
+    z-index: 3;
+
+}
+
+.results.is-active h2 {
+    @starting-style {
+        opacity: 0;
+        scale: 1.5;
+    }
+
+    transition: opacity 0.5s ease-in-out, scale 0.5s ease-in-out;
+}
+
+.results li {
+    list-style-type: none;
+}

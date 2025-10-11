@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Battle</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="battle.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+    <div class="battlechoices js-intro-page">
+       <h1>Pick your battle </h1>
+       <button class="button button--choice js-button-choice-work" id="work">
+            Stuff people say at work
+        </button>
+        <button class="button button--choice js-button-choice-life" id="life">
+            Stuff that happens in life
+        </button>
+    </div>
+    <div class="battlefield">
+        <button class="button js-one one">
+            One
+        </button>
+        <button class="button js-two two">
+            Two
+        </button>
+        <div class="versus">
+            vs
+        </div>
+    </div>
+
+    <div class="results js-results">
+        <h2 class="js-winner"></h2>
+        <ul class="js-runners-up">
+
+        </ul>
+        <p class="js-loser"></p>
+    </div>
+
+    <script type="text/javascript" src="./battle.js"></script>
+    </body>
+</html>
