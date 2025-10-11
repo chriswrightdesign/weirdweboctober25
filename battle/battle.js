@@ -17,7 +17,7 @@
     let losers = [];
 
 
-    const list = ['Let one rip on a train', 'Do a poo', 'Eat a sandwich', 'Watch TV', 'Watch a movie', 'Play video games', 'Read a book', 'Go for a walk', 'Cook dinner', 'Clean the toilet', 'Run to your friends house and nearly die', 'Have a nap', 'Take a shower when you were sweaty', 'Go to the gym', 'Meditate', 'Play an instrument', 'Go to a gig', 'Do something ludicrous', 'Paint a picture', 'Dance in your house', 'Organise your wardrobe', 'Listen to music', 'Have a coffee with a friend', 'Go on tangeants', 'See a friend you haven\'t seen in a while', 'Have a bath', 'Hang with your bestie in work time'];
+    const list = ['Let one rip on a train', 'Do a poo', 'Eat a sandwich', 'Watch TV', 'Watch a movie', 'Play video games', 'Read a book', 'Go for a walk', 'Cook dinner', 'Clean the toilet', 'Run to your friends house and nearly die', 'Have a nap', 'Take a shower when you were sweaty', 'Go to the gym', 'Meditate', 'Play an instrument', 'Go to a gig', 'Do something ludicrous', 'Paint a picture', 'Dance in your house', 'Organise your wardrobe', 'Listen to music', 'Have a coffee with a friend', 'Go on tangeants', 'See a friend you haven\'t seen in a while', 'Have a bath', 'Hang with your bestie in work time', 'Have a picnic', 'Get bitten in the butt by an ant', 'Let one rip in a church', 'Roll around in the grass'];
 
     const workplaceList = ['Time box', 'Stand up', 'Sprint', 'Retrospective', 'Backlog grooming', 'User story', 'Scrum master', 'Create synergies', 'Low hanging fruit', 'Circle back', 'Ping me', 'Bandwidth', 'Touch base', 'Move the needle', 'Deep dive', 'Take this offline', 'On the same page', 'Game changer', 'Disruptive', 'Ideate', 'Pivot', 'Leverage', 'Granular', 'Scalable', 'Streamline', 'Ecosystem', 'Wheelhouse', 'Pain point', 'Core competency', 'Value add', 'Quick win'];
 
@@ -75,7 +75,7 @@
         battleCount += 1;
         listVotes[choice] += 1;
 
-        if ((testList.length - losers.length) <= 2) {
+        if ((testList.length - losers.length) <= 1) {
             setWinners();
             return;
         }
