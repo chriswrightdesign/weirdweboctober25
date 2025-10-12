@@ -1,0 +1,74 @@
+
+
+body {
+    margin:0;
+    padding:0;
+    background: #080221;
+    color: #ffffff;
+
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    padding: 0 1rem;
+    @starting-style {
+        opacity: 0;
+    }
+
+    transition: opacity 0.6s ease;
+}
+.title {
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    line-height: 1.1;
+    margin:0;
+}
+
+.description {
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1rem, 1vw, 2rem);
+    line-height: 1.4;
+    margin: 0;
+    color: #abbbc5;
+}
+
+.entry {
+    @starting-style {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.button {
+    margin-top: 3rem;
+    border: 0;
+    background: none;
+
+    background: rgb(39, 92, 231);
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    color: #fff;
+    font-family: Poppins, sans-serif;
+    transition: background 0.3s ease;
+}
+
+.button:hover {
+    cursor: pointer;
+    background: rgb(29, 72, 211);
+}
+
+.button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+}
