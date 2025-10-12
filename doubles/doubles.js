@@ -5,6 +5,8 @@
 
 (() => {
 
+    let currentIndex = 0;
+
     const contronyms = [
         {
             word: 'transparent',
@@ -94,7 +96,12 @@
     ];
 
     const createRandomIndex = (max) => {
-        return Math.floor(Math.random() * max);
+        const newIndex = Math.floor(Math.random() * max);
+        if (newIndex === currentIndex) {
+            return createRandomIndex(max);
+        }
+        currentIndex = newIndex;
+        return newIndex;
     };
 
     const createEntry = (item) => {
