@@ -50,7 +50,7 @@ button {
     z-index: 2;
     height: 100%;
     width: 100%;
-    background: light-dark(#fff, #000);
+    background: light-dark(#fff, #0f0419);
     display: flex;
     align-items: center;
     justify-content: center;
