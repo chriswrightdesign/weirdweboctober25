@@ -1,5 +1,9 @@
 
-
+body {
+    color-scheme: light dark;
+    background: light-dark(#f0f8ff, #000);
+    color: light-dark(#000, #f0f8ff);
+}
 .stage {
     display: flex;   
     justify-content: center;   
