@@ -8,7 +8,21 @@
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     </head>
     <body>
-       
-        <script type="text/javascript" src="unicode.js"></script>
+        
+        <div class="container">
+            <h1>Name the song</h1>
+            <div class="score">Your score: <span class="js-score">0</span></div>
+
+            <p class="js-question question" id="question"></p>
+
+            <div class="answers" id="answers">
+                <input class="js-answer input" autocomplete="off" autocapitalize="none" autocorrect="off" type="text" id="answer" placeholder="Your answer here">
+                <button id="submit" class="js-submit button" type="button">Submit</button>
+            </div>
+
+            <button class="restart button js-restart">Go again?</button>
+            
+        </div>
+        <script type="text/javascript" src="./unicode.js"></script>
     </body>
 </html>
