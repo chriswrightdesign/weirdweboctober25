@@ -1,0 +1,54 @@
+html {
+    font-size: 100%;
+    user-select: none;
+    height: 100%;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+}
+
+.light {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(249, 241, 7, 0.4), transparent 150px);
+    transition: background 0.1s linear;
+    z-index: 1;
+}
+
+.stage {
+    background: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+:root {
+    --shadow-color: rgba(195, 4, 163, 0.5);
+    --shadow-offset-x: 40px;
+    --shadow-offset-y: 30px;
+    --shadow-blur: 40px;
+    --shadow-spread: 15px;
+    --actor-size: 100px;
+}
+
+.actor {
+    background: rgb(204, 0, 255, 0.95);
+    backdrop-filter: blur(10px);
+    height: var(--actor-size);
+    width: var(--actor-size);
+    will-change: box-shadow;
+    box-shadow: var(--shadow-offset-x) var(--shadow-offset-y) var(--shadow-blur) var(--shadow-spread) var(--shadow-color);
+    transition: box-shadow 0.3s linear;
+}
