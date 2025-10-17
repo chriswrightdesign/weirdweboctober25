@@ -6,6 +6,7 @@ html {
 * {
     box-sizing: border-box;
     touch-action: none;
+    overscroll-behavior: none;
 }
 body {
     margin: 0;
