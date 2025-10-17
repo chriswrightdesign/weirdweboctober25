@@ -5,6 +5,7 @@ html {
 }
 * {
     box-sizing: border-box;
+    touch-action: none;
 }
 body {
     margin: 0;
