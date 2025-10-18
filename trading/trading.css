@@ -24,6 +24,7 @@ h1, p {
 }
 
 .emoji {
+    font-family: 'AppleColorEmoji', sans-serif;
     font-size: 10rem;
 }
 .title {
