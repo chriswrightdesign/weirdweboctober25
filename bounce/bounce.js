@@ -36,7 +36,7 @@
 
     navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
         console.log('Microphone access granted.');
-        console.log('v5');
+        console.log('v6');
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
         source = audioContext.createMediaStreamSource(stream);
         analyser = audioContext.createAnalyser();
@@ -59,16 +59,6 @@
     }
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
-
-    // Ball properties
-    let ball = {
-        x: canvas.width / 2,
-        y: canvas.height / 2,
-        radius: 30,
-        color: 'red',
-        vx: 5,
-        vy: 3
-    };
 
     let ballColor = 'hsl(120deg, 100%, 50%)';
     let ballX = canvas.width / 2;
