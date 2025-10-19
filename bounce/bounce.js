@@ -23,7 +23,6 @@
 
         let volume = Math.sqrt(sum / samples.length);
 
-        console.log('Volume:', volume);
         return volume;
     }
 
