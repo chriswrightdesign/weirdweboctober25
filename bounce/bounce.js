@@ -38,12 +38,12 @@
 
     navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
         console.log('Microphone access granted.');
-        console.log('v9');
+        console.log('v10');
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
         source = audioContext.createMediaStreamSource(stream);
         analyser = audioContext.createAnalyser();
         source.connect(analyser);
-        analyser.fftSize = 256;
+        analyser.fftSize = 64;
         const bufferLength = analyser.frequencyBinCount;
         dataArray = new Uint8Array(bufferLength);
 
@@ -80,12 +80,6 @@
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        const samples = getSamples(dataArray);
-
-        // console.log(samples);
-
-        const sample = samples.length > 0 ? samples.find(s => s !== 0) : 155;
 
         const volume = getVolume(dataArray);
 
