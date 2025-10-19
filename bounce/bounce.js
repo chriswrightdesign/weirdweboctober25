@@ -46,6 +46,7 @@
 
     navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
         console.log('Microphone access granted.');
+        console.log('v2');
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
         source = audioContext.createMediaStreamSource(stream);
         analyser = audioContext.createAnalyser();
