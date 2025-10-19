@@ -9,20 +9,10 @@
     let source;
     let analyser;
 
-    const getAverageVolume = (array) => {
-        let values = 0;
-        let average;
-        const length = array.length;
-
-        for (let i = 0; i < length; i++) {
-            values += array[i];
-        }
-
-        average = values / length;
-        return average;
-    }
-
     const getVolume = (data) => {
+        if (!hasMicInitialized) {
+            return 0;
+        }
         analyser.getByteTimeDomainData(data);
         let samples = [...data].map(v => v / 128 - 1);
         let sum = 0;
@@ -83,6 +73,7 @@
     let ballColor = 'hsl(120deg, 100%, 50%)';
     let ballX = canvas.width / 2;
     let ballY = canvas.height / 2;
+    let ballSize = 30;
 
     const updateBallHeight = (y) => {
         ballY = y;
@@ -90,7 +81,7 @@
 
     const drawBall = (context) => {
         context.beginPath();
-        context.arc(ballX, ballY, ball.radius, 0, Math.PI * 2);
+        context.arc(ballX, ballY, ballSize, 0, Math.PI * 2);
         context.fillStyle = ballColor;
         context.fill();
     }
@@ -104,7 +95,12 @@
 
         const sample = samples.length > 0 ? samples.find(s => s !== 0) : -155;
 
-        console.log('sample: ', sample);
+        const volume = getVolume(dataArray);
+
+        // Change ball color based on volume
+        const hue = Math.min(120, volume * 300);
+        ballColor = `hsl(${hue}deg, 100%, 50%)`;
+        ballSize = 30 + volume * 100;
 
         // so if someone talks louder the ball bounces higher
         updateBallHeight(canvas.height / 2 + Math.sin(Date.now() / 1 * (sample * -1) * 100));
