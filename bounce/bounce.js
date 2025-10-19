@@ -38,7 +38,7 @@
 
     navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
         console.log('Microphone access granted.');
-        console.log('v7');
+        console.log('v8');
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
         source = audioContext.createMediaStreamSource(stream);
         analyser = audioContext.createAnalyser();
@@ -73,9 +73,8 @@
 
     const drawBall = (context, volume) => {
         context.beginPath();
-        context.arc(ballX, ballY, ballSize, 0, Math.PI * 2);
+        context.arc(ballX, ballY, (ballSize + (volume * 100)), 0, Math.PI * 2);
         context.fillStyle = ballColor;
-        context.scale(1 + volume, 1 + volume);
         context.fill();
     }
 
@@ -91,6 +90,8 @@
         const volume = getVolume(dataArray);
 
         ballSize = 30;
+
+        console.log('Volume: ', volume);
 
         // get the samples and move the ball height based on the sample values
 
