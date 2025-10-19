@@ -5,6 +5,10 @@
     const canvas = document.getElementById('myCanvas');
     const ctx = canvas.getContext('2d');
 
+    let audioContext;
+    let source;
+    let analyser;
+
     const getAverageVolume = (array) => {
         let values = 0;
         let average;
@@ -19,7 +23,7 @@
     }
 
     const getVolume = (data) => {
-         analyser.getByteTimeDomainData(data);
+        analyser.getByteTimeDomainData(data);
         let samples = [...data].map(v => v / 128 - 1);
         let sum = 0;
 
@@ -42,9 +46,9 @@
 
     navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
         console.log('Microphone access granted.');
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const source = audioContext.createMediaStreamSource(stream)
-        const analyser = audioContext.createAnalyser();
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        source = audioContext.createMediaStreamSource(stream);
+        analyser = audioContext.createAnalyser();
         source.connect(analyser);
         analyser.fftSize = 256;
         const bufferLength = analyser.frequencyBinCount;
