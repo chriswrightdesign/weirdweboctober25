@@ -46,7 +46,7 @@
 
     navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
         console.log('Microphone access granted.');
-        console.log('v3');
+        console.log('v4');
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
         source = audioContext.createMediaStreamSource(stream);
         analyser = audioContext.createAnalyser();
@@ -100,9 +100,9 @@
 
         const samples = getSamples(dataArray);
 
-        console.log(samples);
+        // console.log(samples);
 
-        const sample = samples.length > 0 ? samples[0] : 1;
+        const sample = samples.length > 0 ? samples.find(s => s > 0) : 1;
 
         console.log('sample: ', sample);
 
