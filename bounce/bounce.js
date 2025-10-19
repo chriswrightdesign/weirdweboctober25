@@ -46,7 +46,7 @@
 
     navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
         console.log('Microphone access granted.');
-        console.log('v2');
+        console.log('v3');
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
         source = audioContext.createMediaStreamSource(stream);
         analyser = audioContext.createAnalyser();
@@ -100,10 +100,14 @@
 
         const samples = getSamples(dataArray);
 
+        console.log(samples);
+
         const sample = samples.length > 0 ? samples[0] : 1;
 
+        console.log('sample: ', sample);
+
         // so if someone talks louder the ball bounces higher
-        updateBallHeight(canvas.height / 2 + Math.sin(Date.now() / 115 * sample) * 100);
+        updateBallHeight(canvas.height / 2 + Math.sin(Date.now() / 1 * sample) * 100);
         drawBall(ctx);
         requestAnimationFrame(animate);
     }
