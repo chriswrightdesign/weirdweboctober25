@@ -22,6 +22,8 @@
         }
 
         let volume = Math.sqrt(sum / samples.length);
+
+        console.log('Volume:', volume);
         return volume;
     }
 
@@ -36,7 +38,7 @@
 
     navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
         console.log('Microphone access granted.');
-        console.log('v6');
+        console.log('v7');
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
         source = audioContext.createMediaStreamSource(stream);
         analyser = audioContext.createAnalyser();
@@ -60,7 +62,7 @@
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    let ballColor = 'hsl(120deg, 100%, 50%)';
+    let ballColor = `hsl(320deg, 100%, 50%)`;
     let ballX = canvas.width / 2;
     let ballY = canvas.height / 2;
     let ballSize = 30;
@@ -69,10 +71,11 @@
         ballY = y;
     }
 
-    const drawBall = (context) => {
+    const drawBall = (context, volume) => {
         context.beginPath();
         context.arc(ballX, ballY, ballSize, 0, Math.PI * 2);
         context.fillStyle = ballColor;
+        context.scale(1 + volume, 1 + volume);
         context.fill();
     }
 
@@ -83,18 +86,16 @@
 
         // console.log(samples);
 
-        const sample = samples.length > 0 ? samples.find(s => s !== 0) : -155;
+        const sample = samples.length > 0 ? samples.find(s => s !== 0) : 155;
 
         const volume = getVolume(dataArray);
 
-        // Change ball color based on volume
-        const hue = Math.min(120, volume * 300);
-        ballColor = `hsl(${hue}deg, 100%, 50%)`;
-        ballSize = 30 + volume * 100;
+        ballSize = 30;
 
-        // so if someone talks louder the ball bounces higher
-        updateBallHeight(canvas.height / 2 + Math.sin(Date.now() / 1 * (sample * -1) * 100));
-        drawBall(ctx);
+        // get the samples and move the ball height based on the sample values
+
+        updateBallHeight(canvas.height / 2 + Math.sin(Date.now() / sample) * 100);
+        drawBall(ctx, volume);
         requestAnimationFrame(animate);
     }
 
