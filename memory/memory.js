@@ -11,6 +11,16 @@
             setupGame(unreliableShuffle);
         }, 100);
     }
+
+    const cardColors = {
+        '🍑': '#FFC1CC',
+        '🧘🏻‍♀️': '#FFCCF1',
+        '🪴': '#CCFFCC',
+        '🐙': '#CCCCFF',
+        '🤯': '#FFFFCC',
+        '💺': '#FFCCCC',
+    }
+
     const baseCardArray = ['🍑', '🧘🏻‍♀️', '🪴', '🐙', '🤯', '💺'];
     const cardArray = [...baseCardArray, ...baseCardArray];
 
@@ -34,6 +44,7 @@
         cards.forEach((card, index) => {
             const cardFaceFront = card.querySelector('.card__face--front');
             cardFaceFront.textContent = array[index];
+            cardFaceFront.style.backgroundColor = cardColors[array[index]];
         });
     }
 
