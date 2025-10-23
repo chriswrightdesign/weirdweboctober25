@@ -1,0 +1,119 @@
+@layer reset {
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        color-scheme: light dark;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: none;
+        text-size-adjust: none;
+        hanging-punctuation: first allow-end last;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        text-wrap: balance;
+    }
+
+    p {
+        text-wrap: pretty;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+    background: #fff;
+    color: #000;
+    font-family: "Libre Baskerville", serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 3rem;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+.container {
+    display: grid;
+}
+
+.title {
+    font-size: 1rem;
+    color: #4d4b5b;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    margin-bottom: 2rem;
+    letter-spacing: 1.2px;
+}
+
+blockquote {
+    padding-left: 0rem;
+    margin: 1rem 0 3rem;
+}
+
+.quotemark {
+    font-size: 8rem;
+    font-family: "Libre Baskerville", serif;
+    position: absolute;
+    top: -3rem;
+    left: -3rem;
+}
+
+.quote {
+    position: relative;
+    /* border: 1px solid #f0f; */
+    max-width: 70ch;
+    line-height: 1;
+}
+
+.quote-text {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.button {
+    background: #000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    width: fit-content;
+    margin: 0 auto;
+    transition: background 0.3s ease;
+}
+
+.button.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.button:hover {
+    background: #464040;
+    cursor: pointer;
+}
+
+.button.ghost {
+    border: 2px solid #000;
+    background: none;
+    color: #000;
+}
