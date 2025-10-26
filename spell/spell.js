@@ -181,23 +181,12 @@
         chooseLetterDialog.showModal();
     }
 
-    const clearRound = () => {
-        // letterChoices = [];
-        // roundScore = 0;
-        // word.textContent = '';
-     }
-
-     const endGame = () => {
-        console.log('Game over! Total score:', totalScore);
-
-        console.log('your current rank: ', getGameRank(totalScore));
-
-        // show end game container
+    const endGame = () => {
         endGameContainer.classList.remove('is-inactive');
         finalScoreDisplay.textContent = `${totalScore}`;
         rank.textContent = getGameRank(totalScore);
         gameDialog.close();
-     }
+    }
 
     const rank = document.querySelector('.js-final-rank');
 
@@ -246,6 +235,13 @@
         if (exists) {
             for (const letter of currentWord) {
                 roundScore += letterScores[letter] || 0;
+            }
+            if (currentWord.length === 7) {
+                roundScore *= 2; // bonus for 7-letter words
+            } else if (currentWord.length === 8) {
+                roundScore *= 3; // bonus for 8-letter words
+            } else if (currentWord.length === 9) {
+                roundScore *= 4; // bonus for 9-letter words
             }
             totalScore += roundScore;
             savedWords.push({ word: currentWord, score: roundScore });
