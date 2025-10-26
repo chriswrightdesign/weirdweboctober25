@@ -1,6 +1,6 @@
 (() => {
-    const consonants = 'bcdfghjklmnpqrstvwxyz';
-    const vowels = 'aeiouaeiouaeiou';
+    const consonants = 'bbccddddffggghhjkllllmmnnnnnnppqrrrrrrssssttttttvvwwxyyz';
+    const vowels = 'aaaaaaaaaeeeeeeeeeeeeeiiiiiiiiiiooooooooouuuu';
 
     // TODO: consider wildcards or blank tiles (checking the API is complicated there)
     const letterScores = {
