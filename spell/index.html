@@ -1,0 +1,105 @@
+<html>
+<head>
+    <head>
+        <title>Spell rabble</title>
+         <link rel="preload" as="fetch" href="https://octothorp.es/?uri=https://chriswrightdesign.github.io/weirdweboctober25/spell/">
+        <link rel="octo:octothorpes" href="weirdweboctober">
+        <link rel="octo:octothorpes" href="Spell" >
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="spell.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    </head>
+</head>
+<body>
+    <div class="game-info">
+            <h1 class="title">Spell rabble</h1>
+            <p>Round: <span class="js-round-number">1</span>/3</p>
+            <p>Score: <span class="js-total-score">0</span></p>
+        </div>
+    <div class="spell">
+
+        <!-- instructions -->
+       <div class="instructions js-instructions">
+            <h2 class="instructions__title">Instructions:</h2>
+            <ul>
+                <li>The game has 3 rounds, you select vowels and consonants to form a word.</li>
+                <li>At the start of each round you can keep one letter from the previous round.</li>
+                <li>Once you have selected 9 letters you can form a word, the longer the word the higher the score.</li>
+                <li>Multiplier bonuses for words that are 7 (2x), 8 (3x), or 9 (4x) letters long.</li>
+            </ul>
+
+            <div class="start-container">
+                <button type="button" class="button js-start-button">Start game</button>
+            </div>
+        </div>
+        
+        <!-- 1. initial start -->
+        <dialog class="js-start-dialog start-dialog">
+            <h2 class="dialog-title js-dialog-title">Choose your class</h2>
+
+            <ul class="js-class-options class-options">
+                
+            </ul>
+        </dialog>
+
+        <!-- 2. start of round -->
+        <dialog class="js-choose-letter-dialog choose-letter-dialog">
+            <h2 class="dialog-title">Choose a letter: <span class="js-letter-count">0/8</span></h2>
+
+            <div class="letters js-letter-display">
+
+            </div>
+
+             <div class="js-letter-choice letter-choice">
+                <div class="actions">
+                    <button class="button js-vowel-button">Vowel</button>
+                    <button class="button js-consonant-button">Consonant</button>
+                </div>
+            </div>
+        </dialog>
+
+        <!-- 3. main game -->
+         <dialog class="js-game-dialog game-dialog">
+            <h2 class="dialog-title">Create your word:</h2>
+            <div class="main-game">
+
+                <!-- word -->
+                <div class="word js-word"></div>
+        
+                <div class="letter-options">
+                    <div class="letters js-game-letters">
+                        <!-- Letters will appear here -->
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="button js-reset-word-button">Reset</button>
+                    <button class="button js-submit-word-button">Submit</button>
+                </div>
+                
+
+            </div>
+        </dialog>
+
+
+        <!-- 4. end of round -->
+        <dialog class="js-end-round-dialog end-round-dialog">
+            <h2 class="dialog-title js-end-round-title">Pick a letter to save</h2>
+            
+            <div class="js-keep-letter-options letters">
+                <!-- Letters to keep will appear here -->
+            </div>
+        </dialog>
+
+    
+        <!-- 5. end of game -->
+        <div class="js-end-game end-game is-inactive">
+            <h2 class="subtitle">Game over!</h2>
+            <p>Your current rank: <span class="js-final-rank"></span></p>
+            <p>Your total score is: <span class="js-final-score">0</span></p></p>
+            <button class="button js-restart-button">Play again</button>
+        </div>
+    <script src="spell.js"></script>
+</body>
+</html>
